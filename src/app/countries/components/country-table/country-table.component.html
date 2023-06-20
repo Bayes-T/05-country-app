@@ -1,0 +1,28 @@
+<div *ngIf="countries.length === 0; else table" class="alert alert-warning text-center mt-2">No hay países que mostrar</div>
+
+
+<!--Si no quiero usar el ngif else, puedo poner simplemente un if en el otro(pero haria dos consultas). Pero igual funcionaria con un if en el primero y con nada en la tabla no?-->
+<ng-template #table>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Población</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{country.flag}}</td>
+                <td>{{country.name?.common}}</td>
+                <td>{{country.population | number}}</td>
+                <td><a [routerLink]="['/countries/by', country.cca3]">Ver más</a></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+

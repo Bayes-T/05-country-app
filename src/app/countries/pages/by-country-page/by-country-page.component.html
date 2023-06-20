@@ -1,0 +1,17 @@
+<h2>Por país</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-search-box [busqueda]="'país'" 
+        (onSearch)="searchByCountry($event)"
+        ></app-search-box>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <!--tabla de resultados-->
+        <country-table [countries]="countries"></country-table>
+    </div>
+</div>

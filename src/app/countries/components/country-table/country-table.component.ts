@@ -1,0 +1,13 @@
+import { Component, Input } from '@angular/core';
+import { SearchResponse } from '../../interfaces/countries.interface';
+
+@Component({
+  selector: 'country-table',
+  templateUrl: './country-table.component.html',
+  styleUrls: ['./country-table.component.css']
+})
+export class CountryTableComponent {
+
+  @Input()
+  public countries:SearchResponse[] = []
+}
